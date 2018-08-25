@@ -62,7 +62,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
         id: req.user._id,
         username: req.user.username
     }
-    var newCampground = { name: campgroundName, image: campgroundImage, description: campgroundDescription, author: campgroundAuthor, price: campgroundPrice };
+    var newCampground = { name: campgroundName, image: campgroundImage, description: campgroundDescription, author: campgroundAuthor, price: campgroundPrice, createdAt: Date.now() };
     // Create a new campground and save to DB
     Campground.create(newCampground, function (err, newlyCreated) {
         if (err) {
