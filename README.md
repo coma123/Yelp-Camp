@@ -32,9 +32,8 @@ To see the app in action, go to [https://salty-escarpment-71266.herokuapp.com/](
 
 * Manage user account with basic functionalities:
 
-  * ~~Password reset via email confirmation~~ (disabled)
-
   * Profile page setup with sign-up
+  * Password reset via email confirmation
 
 * Flash messages responding to users' interaction with the app
 
