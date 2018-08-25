@@ -1,0 +1,45 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+            <h1 class="text-center">All Users</h1>
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Give Privilegies</th>
+                        <th>Take Privilegies</th>
+                    </tr>
+                    <% users.forEach(function(user){ %>
+                        <tr>
+                            <td><%= user.username %></td>
+                            <% if(user.isAdmin){ %>
+                                <td>Admin</td>
+                            <% } else { %>
+                                <td>Subscriber</td>
+                            <% } %>
+                            <% if(currentUser && currentUser._id.equals(user._id)){ %>
+                                <td><button type="button" class="btn btn-success btn-xs" disabled="disabled">Give Admin Role</button></td>
+                                <td><button type="button" class="btn btn-danger btn-xs" disabled="disabled">Make Subscriber</button></td>
+                            <% } else if(user.isAdmin){ %>
+                                <td><button type="button" class="btn btn-success btn-xs" disabled="disabled">Give Admin Role</button></td>
+                                <td><a href="/users/<%= user._id %>/makeSubscriber" class="btn btn-danger btn-xs">Make Subscriber</a></td>
+                            <% } else { %>
+                                <td><a href="/users/<%= user._id %>/giveAdmin" class="btn btn-success btn-xs">Give Admin Role</a></td>
+                                <td><button type="button" class="btn btn-danger btn-xs" disabled="disabled">Make Subscriber</button></td>
+                            <% } %>
+                        </tr>
+                    <% }); %>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.title = "Edit Comment • " + document.title;
+</script>
+
+<% include ../partials/footer %>

@@ -1,0 +1,25 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+            <h1 class="text-center">Add New Comment to <span class="text-info"><%= campground.name %></span></h1>
+            <form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                <div class="form-group">
+                    <label for="text">Comment Text</label>
+                    <textarea cols="30" rows="7" id="text" class="form-control" name="comment[text]" placeholder="Enter Text"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block">Submit</button>
+                </div>
+            </form>
+            <a href="/campgrounds/<%= campground._id %>">Go Back</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.title = "Add New Comment to <%- campground.name %> • " + document.title;
+</script>
+
+<% include ../partials/footer %>

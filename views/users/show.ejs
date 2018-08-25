@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h3 class="text-center"><%= user.firstName %> <%= user.lastName %></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="text-center">
+                        <img src="<%= user.avatar %>" alt="user profile image" width="100px" heght="100px">
+                        <h3><%= user.username %></h3>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a href="mailto:<%= user.email %>"><%= user.email %></a>
+                    <% if(currentUser && currentUser._id.equals(user._id)){ %>
+                        <a href="/users/<%= user.id %>/edit" class="btn btn-warning pull-right">Edit</a>
+                        <br><br>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="text-center"><%= user.username %>'s Campgrounds</h3>
+                </div>
+                <div class="panel-body">
+                    
+                </div>
+                <ul class="list-group">
+                    <% campgrounds.forEach(function(campground){ %>
+                        <li class="list-group-item"><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></li>
+                    <% }); %>
+                </ul>
+                <div class="panel-footer">
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.title = "<%- user.username %>'s profile • " + document.title;
+</script>
+
+<% include ../partials/footer %>

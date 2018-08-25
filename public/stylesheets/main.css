@@ -1,0 +1,30 @@
+.thumbnail img{
+    width: 100%;
+}
+
+#submittedBy {
+    display: inline;
+}
+
+#campgroundDelete{
+    display: inline;
+    margin-left: 5px;
+}
+
+#commentDelete{
+    display: inline;
+    margin-left: 5px;
+}
+
+@media(max-width:510px){
+    #campgroundEdit{
+        float: left !important;
+        margin-right: 3px;
+    }
+}
+
+#indexImages{
+    display: flex; 
+    flex-wrap: wrap;
+}
+
